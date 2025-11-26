@@ -39,7 +39,7 @@ public class PlaylistRecommender {
 
         for (int i = 0; i < title.length(); i++) {
             char c = title.charAt(i);
-            if (!Character.isLetter(c) || c != ' ') {
+            if (!Character.isLetter(c) && c != ' ') {
                 return false;
             }
 

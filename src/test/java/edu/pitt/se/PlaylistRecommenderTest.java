@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class PlaylistRecommenderTest {
 
@@ -20,7 +19,11 @@ public class PlaylistRecommenderTest {
     
         assertEquals("HIGH", PlaylistRecommender.classifyEnergy(testList), "Should be high");
 
+        testList.add(5);
+        testList.add(6);
+        testList.add(7);
 
+        assertEquals("LOW", PlaylistRecommender.classifyEnergy(testList), "Should be low");
 
     }
 
@@ -30,6 +33,9 @@ public class PlaylistRecommenderTest {
         String title = "thisShouldBeTooLongSoTheTestShouldFail";
 
         assertFalse(PlaylistRecommender.isValidTrackTitle(title));
+
+        String title2 = "Hello World";
+        assertTrue(PlaylistRecommender.isValidTrackTitle(title2));
     }
 
     @Test
